@@ -1,4 +1,6 @@
-# HackathonMalaysia2018
+# GBEC Hackathon Malaysia 2018
+
+![hackathon banner](https://github.com/GoBlockchainNetwork/HackathonMalaysia2018/blob/master/docs/banner.jpg)
 
 Welcome to the submission repository for the GBEC Hackathon Malaysia 2018.
 
