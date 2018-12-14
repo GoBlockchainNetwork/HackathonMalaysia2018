@@ -20,7 +20,7 @@ Additionally you can also upload your team's presentation slides (if any).
 
 #### 2) Create an issue in this repo
 
-Create a new issue in the HackathonMalaysia2018 repository and paste a link to your repository (step 1).
+Create a new issue in the HackathonMalaysia2018 repository following [this handy template](https://github.com/GoBlockchainNetwork/HackathonMalaysia2018/issues/1)
 
 #### 3) You're set to Go!
 
