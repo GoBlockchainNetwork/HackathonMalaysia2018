@@ -1,4 +1,6 @@
-# GBEC Hackathon 2018 submission archives
+# GBEC Hackathon 2018 submission snapshots
+
+Snapshots of team submission for archiving purpose only, all [intellectual property rights](https://github.com/GoBlockchainNetwork/HackathonMalaysia2018/blob/master/CodeOfConduct.md#intellectual-property-rights) are in accordance to Hackathon Code of Conduct.
 
 Team name | Issue link | Fork source | Fork destination
 --------- | ---------- | ----------- | ----------------
