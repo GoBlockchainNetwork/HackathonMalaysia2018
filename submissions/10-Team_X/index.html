@@ -1,0 +1,497 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>-->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js" integrity="sha256-nWBTbvxhJgjslRyuAKJHK+XcZPlCnmIAAMixz6EefVk=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+
+</head>
+<body id="image_bg" style="background-repeat: no-repeat;background-image: url('./img/bg.png');">
+  <!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+  <div id="copyright2">
+    <img src="img/shopee.png" style="height:60px;margin-top:-5px;">
+    <h1 id="balance"></h1>
+  </div>
+  <div id="copyright">
+    <div style="position:relative;border-radius: 10px;width:60%;margin:0 auto;background-color: #fff;height:70px;">
+      <a class="btn btn-lg" href="#" style="float:left;margin:10px 10px;border: 1px solid black;color:black;width:20%;"  role="button">Cancel</a>
+      <a id="btn_pay" class="btn btn-primary btn-lg" href="#" style="float:right;margin:10px 10px;width:20%;background-color: orangered;border: 0"  role="button">Pay Now!</a>
+    </div>
+  </div>
+  <script src="js/vendor/modernizr-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
+  <script src="js/plugins.js"></script>
+  <script>
+      // Our future code here..
+      if (typeof web3 !== 'undefined') {
+          web3 = new Web3(web3.currentProvider);
+      } else {
+          // set the provider you want from Web3.providers
+          web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+      }
+      web3.eth.defaultAccount = web3.eth.accounts[0];
+
+      var P2PInsuContract = new web3.eth.Contract([
+              {
+                  "constant": true,
+                  "inputs": [],
+                  "name": "name",
+                  "outputs": [
+                      {
+                          "name": "",
+                          "type": "string"
+                      }
+                  ],
+                  "payable": false,
+                  "stateMutability": "view",
+                  "type": "function"
+              },
+              {
+                  "constant": false,
+                  "inputs": [
+                      {
+                          "name": "_spender",
+                          "type": "address"
+                      },
+                      {
+                          "name": "_value",
+                          "type": "uint256"
+                      }
+                  ],
+                  "name": "approve",
+                  "outputs": [
+                      {
+                          "name": "success",
+                          "type": "bool"
+                      }
+                  ],
+                  "payable": false,
+                  "stateMutability": "nonpayable",
+                  "type": "function"
+              },
+              {
+                  "constant": true,
+                  "inputs": [],
+                  "name": "totalSupply",
+                  "outputs": [
+                      {
+                          "name": "",
+                          "type": "uint256"
+                      }
+                  ],
+                  "payable": false,
+                  "stateMutability": "view",
+                  "type": "function"
+              },
+              {
+                  "constant": false,
+                  "inputs": [
+                      {
+                          "name": "_from",
+                          "type": "address"
+                      },
+                      {
+                          "name": "_to",
+                          "type": "address"
+                      },
+                      {
+                          "name": "_value",
+                          "type": "uint256"
+                      }
+                  ],
+                  "name": "transferFrom",
+                  "outputs": [
+                      {
+                          "name": "success",
+                          "type": "bool"
+                      }
+                  ],
+                  "payable": false,
+                  "stateMutability": "nonpayable",
+                  "type": "function"
+              },
+              {
+                  "constant": true,
+                  "inputs": [],
+                  "name": "decimals",
+                  "outputs": [
+                      {
+                          "name": "",
+                          "type": "uint8"
+                      }
+                  ],
+                  "payable": false,
+                  "stateMutability": "view",
+                  "type": "function"
+              },
+              {
+                  "constant": false,
+                  "inputs": [
+                      {
+                          "name": "_value",
+                          "type": "uint256"
+                      }
+                  ],
+                  "name": "burn",
+                  "outputs": [
+                      {
+                          "name": "success",
+                          "type": "bool"
+                      }
+                  ],
+                  "payable": false,
+                  "stateMutability": "nonpayable",
+                  "type": "function"
+              },
+              {
+                  "constant": true,
+                  "inputs": [
+                      {
+                          "name": "",
+                          "type": "address"
+                      }
+                  ],
+                  "name": "balanceOf",
+                  "outputs": [
+                      {
+                          "name": "",
+                          "type": "uint256"
+                      }
+                  ],
+                  "payable": false,
+                  "stateMutability": "view",
+                  "type": "function"
+              },
+              {
+                  "constant": false,
+                  "inputs": [
+                      {
+                          "name": "_from",
+                          "type": "address"
+                      },
+                      {
+                          "name": "_value",
+                          "type": "uint256"
+                      }
+                  ],
+                  "name": "burnFrom",
+                  "outputs": [
+                      {
+                          "name": "success",
+                          "type": "bool"
+                      }
+                  ],
+                  "payable": false,
+                  "stateMutability": "nonpayable",
+                  "type": "function"
+              },
+              {
+                  "constant": true,
+                  "inputs": [],
+                  "name": "owner",
+                  "outputs": [
+                      {
+                          "name": "",
+                          "type": "address"
+                      }
+                  ],
+                  "payable": false,
+                  "stateMutability": "view",
+                  "type": "function"
+              },
+              {
+                  "constant": true,
+                  "inputs": [],
+                  "name": "symbol",
+                  "outputs": [
+                      {
+                          "name": "",
+                          "type": "string"
+                      }
+                  ],
+                  "payable": false,
+                  "stateMutability": "view",
+                  "type": "function"
+              },
+              {
+                  "constant": false,
+                  "inputs": [
+                      {
+                          "name": "_to",
+                          "type": "address"
+                      },
+                      {
+                          "name": "_value",
+                          "type": "uint256"
+                      }
+                  ],
+                  "name": "transfer",
+                  "outputs": [
+                      {
+                          "name": "success",
+                          "type": "bool"
+                      }
+                  ],
+                  "payable": false,
+                  "stateMutability": "nonpayable",
+                  "type": "function"
+              },
+              {
+                  "constant": false,
+                  "inputs": [
+                      {
+                          "name": "_spender",
+                          "type": "address"
+                      },
+                      {
+                          "name": "_value",
+                          "type": "uint256"
+                      },
+                      {
+                          "name": "_extraData",
+                          "type": "bytes"
+                      }
+                  ],
+                  "name": "approveAndCall",
+                  "outputs": [
+                      {
+                          "name": "success",
+                          "type": "bool"
+                      }
+                  ],
+                  "payable": false,
+                  "stateMutability": "nonpayable",
+                  "type": "function"
+              },
+              {
+                  "constant": true,
+                  "inputs": [
+                      {
+                          "name": "",
+                          "type": "address"
+                      },
+                      {
+                          "name": "",
+                          "type": "address"
+                      }
+                  ],
+                  "name": "allowance",
+                  "outputs": [
+                      {
+                          "name": "",
+                          "type": "uint256"
+                      }
+                  ],
+                  "payable": false,
+                  "stateMutability": "view",
+                  "type": "function"
+              },
+              {
+                  "constant": true,
+                  "inputs": [],
+                  "name": "totalPool",
+                  "outputs": [
+                      {
+                          "name": "",
+                          "type": "uint256"
+                      }
+                  ],
+                  "payable": false,
+                  "stateMutability": "view",
+                  "type": "function"
+              },
+              {
+                  "constant": true,
+                  "inputs": [
+                      {
+                          "name": "",
+                          "type": "address"
+                      }
+                  ],
+                  "name": "claimOf",
+                  "outputs": [
+                      {
+                          "name": "",
+                          "type": "uint256"
+                      }
+                  ],
+                  "payable": false,
+                  "stateMutability": "view",
+                  "type": "function"
+              },
+              {
+                  "inputs": [
+                      {
+                          "name": "initialSupply",
+                          "type": "uint256"
+                      },
+                      {
+                          "name": "tokenName",
+                          "type": "string"
+                      },
+                      {
+                          "name": "tokenSymbol",
+                          "type": "string"
+                      }
+                  ],
+                  "payable": false,
+                  "stateMutability": "nonpayable",
+                  "type": "constructor"
+              },
+              {
+                  "anonymous": false,
+                  "inputs": [
+                      {
+                          "indexed": true,
+                          "name": "from",
+                          "type": "address"
+                      },
+                      {
+                          "indexed": true,
+                          "name": "to",
+                          "type": "address"
+                      },
+                      {
+                          "indexed": false,
+                          "name": "value",
+                          "type": "uint256"
+                      }
+                  ],
+                  "name": "Transfer",
+                  "type": "event"
+              },
+              {
+                  "anonymous": false,
+                  "inputs": [
+                      {
+                          "indexed": true,
+                          "name": "_owner",
+                          "type": "address"
+                      },
+                      {
+                          "indexed": true,
+                          "name": "_spender",
+                          "type": "address"
+                      },
+                      {
+                          "indexed": false,
+                          "name": "_value",
+                          "type": "uint256"
+                      }
+                  ],
+                  "name": "Approval",
+                  "type": "event"
+              },
+              {
+                  "anonymous": false,
+                  "inputs": [
+                      {
+                          "indexed": true,
+                          "name": "from",
+                          "type": "address"
+                      },
+                      {
+                          "indexed": false,
+                          "name": "value",
+                          "type": "uint256"
+                      }
+                  ],
+                  "name": "Burn",
+                  "type": "event"
+              }
+          ],'0x02d70a8d33726de3be88515f813339272ac7670c',
+          {
+              from:  web3.eth.accounts[0], // default from address
+              gasPrice: '20000000000' // default gas price in wei, 20 gwei in this case
+          }
+      );
+
+      var total_pool = 1;
+      var total_balance = 0;
+      console.log(P2PInsuContract);
+      var self = this;
+      var result = P2PInsuContract.methods.totalPool().call({from:  web3.eth.accounts[0]})
+          .then(function(result){
+              total_pool =  window.web3.utils.toWei(result.toString(), 'ether')/1000000000000000000;
+              $("#total_pool").html(
+                  ''+total_pool+' PTX'
+              );
+              console.log("totalPool:", window.web3.utils.toWei(result.toString(), 'ether')) ;
+              $("#pool_pct").html(
+                  ' '+  total_balance / total_pool * 100 + '% from pool'
+              );
+          });
+
+      var result = P2PInsuContract.methods.balanceOf(window.web3.currentProvider.selectedAddress).call({from:  web3.eth.accounts[0]})
+          .then(function(result){
+              total_balance = window.web3.utils.toWei(result, 'ether')/1000000000000000000;
+              $("#current_balance").html(
+                  ''+ total_balance +' PTX'
+              );
+              $("#pool_pct").html(
+                  ' '+  total_balance / total_pool  * 100 +'% from pool'
+              );
+
+              console.log("totalPool:", window.web3.utils.toWei(result.toString(), 'ether')) ;
+          });
+      $("#address").html(
+          window.web3.currentProvider.selectedAddress
+      );
+
+      //
+      //
+      //      var result = P2PInsuContract.methods.claimOf(window.web3.currentProvider.selectedAddress).call({from:  web3.eth.accounts[0]})
+      //          .then(function(result){
+      //              $("#claim").html(
+      //                  '<br>Client Claim:'+ window.web3.utils.toWei(result, 'ether')/1000000000000000000
+      //              );
+      //              console.log("totalPool:", window.web3.utils.toWei(result.toString(), 'ether')) ;
+      //          });
+
+      $("#btn_pay").click(function() {
+          var amount = 1;
+          amount = web3.utils.toWei(amount.toString(), 'ether');
+          var response = P2PInsuContract.methods
+              .transfer('0x366959125f4FbC8aceE2B24cb042f26274f87695', 10)
+              .send({
+                  from: window.web3.currentProvider.selectedAddress,
+                  gasPrice: '20000000000'
+              });
+          console.log(response);
+      });
+
+      $("#done_btn").click(function() {
+          var amount = 1;
+          amount = web3.utils.toWei(amount.toString(), 'ether');
+          var response = P2PInsuContract.methods
+              .transfer('0x6cD23ACf56AC1D3713e00bda6f8a4C4eCFf38bb8', 1)
+              .send({
+                  from: window.web3.currentProvider.selectedAddress,
+                  gasPrice: '20000000000'
+              });
+          window.location.href = "dashboard.html";
+
+          console.log(response);
+      });
+
+  </script>
+
+</body>
+
+</html>
