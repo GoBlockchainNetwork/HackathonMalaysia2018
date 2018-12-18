@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Lottery</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+	<body>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-50 col-sm-8 col-sm-push-2 col-md-100">
+			<!-- container Size-->
+			
+          <h1 class="Lottery-Header"><center>Lottery
+			  <br><img src="Image/Lottery.jpg" width="567" height="230" alt=""/>
+          </center></h1>
+			
+		    
+<div class="col-sm-15 col-md-15 col-lg-10">
+  <div class="box main">
+	  <div class="User panel">
+		  <h2 class="panel-User User_Image">User Information<br><img src="Image/circled-user-male-skin-type-1-2.png" width="88" height="103" alt=""/></h2>
+		  <div class="User"> 
+            <medium>User Account: </medium> <br><p id="userAccount"></p> <!--put in the User Account (userAccoun)-->
+            <medium>Your Balance: </medium> <br> <p id="balance"></p> <!--put in the balance (balancee)-->
+			<medium>Total Token: </medium> <br> <p id="token"></p> <!--put in the token (token)-->
+		  </div>
+	  </div>
+          
+	  <div class="panel Buy Tokens">
+          <div class="panel-Buy Token_heading">
+              <img src="Image/Ethereum Coin.png" width="87" height="118" alt=""/><br><br><h2 class="panel-title">Buy Tokens</h2>
+          </div>
+<input id="buy" type="text" name="Buy Tokens">
+			  
+			  <!--input Buy Value Here,updateMessageValue and id should be Buy contract in here-->
+
+		  <input id="addCoinsAndPriority()" type="submit" name="Buy">
+      </div>
+	  
+	      <div class="panel Make Guess">
+          <div class="panel-Make Guess_heading">
+ 		  <h2 class="panel-title">Make Guess</h2>
+          </div>
+			<input id="coinsToAdd" type="text" name="Guess">
+            <!--input Buy Value Here,updateMessageValue and id should be Guess contract in here-->
+            <input id="getGuess()" type="submit" name="Guess">
+			  </div>
+	  <div class="Contract">
+		<h5 class="panel-Contract title"><img src="Image/contract.jpg" width="152" height="167" alt=""/></h5>
+<h2 class="panel-Contract title">Contract</h2>
+          <div class="Contract"> 
+            <strong>Contract Owner:</strong><br> <p id="userID()"></p> <!--put in the contract owner (contactOwner)-->
+            <strong>Contract Balance: </strong> <p id="getPrice()"></p> <!--Put in the contract balance (contactBalance)-->
+		    </div>
+			  <div class="panel-submission">
+			  <br><br><center><input type="Submit"></center>
+        </div>
+  </div>
+	  <script contact="js/Lottery.js"></script>
+	  <script contact="js/Migrations.js"></script>
+	  	  <script javascripts="js/apps.js"></script>
+	  <script javascript="css/bootstrap.min.css"></script>
+	  <script javascript="js/web3.min.js"></script>
+    <script javascripts="js/truffle-config.js"></script>
+  
+	</div></div></div></div></div></body>
+	  </html>
