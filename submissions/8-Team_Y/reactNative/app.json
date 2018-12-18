@@ -1,0 +1,15 @@
+{
+  "expo": {
+    "sdkVersion": "27.0.0",
+    "name": "DrugSafe",
+    "slug": "hackaton",
+    "version": "0.1.0",
+    "description": "DrugSafe Project",
+    "icon": "./src/img/logo512.png",
+    "android": {
+    },
+    "ios": {
+
+    },
+  }
+}
