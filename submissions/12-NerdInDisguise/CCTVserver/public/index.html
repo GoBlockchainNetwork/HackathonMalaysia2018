@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <script src="/webcam.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="client.js"></script>
+
+  <title>webcam stream bruh!!</title>
+
+  <style>
+    #container {
+      margin: 0px auto;
+      width: 500px;
+      height: 375px;
+      border: 10px #333 solid;
+    }
+
+    #videoElement {
+      width: 500px;
+      height: 375px;
+      background-color: #666;
+    }
+    p {
+      text-align: center;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <video autoplay="true" id="videoElement" ></video>
+
+  </div>
+  <div class="">
+    <canvas id="canvas" width="500" height="375"></canvas>
+  </div>
+
+
+</body>
+
+</html>
