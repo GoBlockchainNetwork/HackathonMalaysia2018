@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="30dp">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/s_name"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:text="Name:" />
+
+                    <TextView
+                        android:id="@+id/s_name_data"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Steven Clarke" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/s_nation"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:text="Nationality:" />
+
+                    <TextView
+                        android:id="@+id/s_nation_data"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Australian" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/s_photo"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:text="Photo:" />
+
+                    <ImageView
+                        android:id="@+id/s_profile_photo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:adjustViewBounds="true"
+                        android:clickable="true"
+                        android:contentDescription="Profile Photo"
+                        android:focusable="true"
+                        android:maxWidth="200dp"
+                        android:maxHeight="200dp"
+                        android:src="@drawable/profile_photo" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/s_status"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:text="Immi Status:" />
+
+                    <TextView
+                        android:id="@+id/s_status_data"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:text="Malaysian Working Visa" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/s_id"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:text="ID#:" />
+
+                    <TextView
+                        android:id="@+id/s_id_data"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:text="PE123456789" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/s_id_photo"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:text="ID photo:" />
+
+                    <ImageView
+                        android:id="@+id/s_id_photo_data"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:adjustViewBounds="true"
+                        android:clickable="true"
+                        android:contentDescription="ID Photo"
+                        android:focusable="true"
+                        android:maxWidth="200dp"
+                        android:maxHeight="200dp"
+                        android:src="@drawable/ic_fake" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/s_extra"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:text="Extra Data:" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/s_extra_data1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="UN Aid Registered" />
+
+                        <TextView
+                            android:id="@+id/s_extra_data2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="AIA Insurance Policy #12345" />
+
+                        <TextView
+                            android:id="@+id/s_extra_data3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Children in local school: 2" />
+                    </LinearLayout>
+
+                </TableRow>
+            </TableLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
