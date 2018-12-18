@@ -1,0 +1,26 @@
+body {
+  background-color: DarkGray;
+}
+
+footer {
+    position: relative;
+    height: 300px;
+    width: 100%;
+    background-color: #333333;
+    padding-left: 5cm
+}
+
+p.copyright {
+    position: absolute;
+    width: 100%;
+    color: #fff;
+    line-height: 40px;
+    font-size: 0.7em;
+    text-align: center;
+    bottom:0;
+}
+
+form-group{
+	margin-left: 50%;
+    margin-right: 50%;
+}
