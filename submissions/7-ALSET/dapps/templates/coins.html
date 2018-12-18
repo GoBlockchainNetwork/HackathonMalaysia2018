@@ -1,0 +1,182 @@
+{% extends 'base.html' %}
+
+{% block title %}
+ALSET: Coins
+{% endblock %}
+
+{% block contents %}
+<!--Section: Cards-->
+<section class="pt-5">
+    <!-- Heading & Description -->
+    <div class="wow fadeIn">
+        <!--Section heading-->
+        <h2 class="h1 text-center mb-5">ALSET Coins</h2>
+
+        <!--Section description-->
+        <p class="text-center">
+            Our services runs on the ALSET coins. Buy ALSET coins today and gain access to a sea of
+            opportunities.
+        </p>
+
+        <p class="text-center">
+            <strong><span id="spanCoinToWeiRate"></span></strong>
+        </p>
+    </div>
+    <!-- Heading & Description -->
+
+    <div class="row mt-5">
+        <div class="col-lg-6 col-xs-12">
+            <div class="card">
+                <h5 class="card-header h5">Buy</h5>
+
+                <div class="card-body">
+                    <!-- <h5 class="card-title">Special title treatment</h5> -->
+
+                    <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+
+                    <div class="md-form form-lg">
+                        <input type="number" id="input-buy-coins" class="form-control form-control-lg" min="1">
+                        <label for="input-buy-coins">Coins</label>
+                    </div>
+
+                    <button id="button-buy-coins" type="button" class="btn btn-primary">Buy</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-xs-12">
+            <div class="card">
+                <h5 class="card-header h5">Sell</h5>
+
+                <div class="card-body">
+                    <!-- <h5 class="card-title">Special title treatment</h5> -->
+
+                    <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+
+                    <div class="md-form form-lg">
+                        <input type="number" id="input-sell-coins" class="form-control form-control-lg" min="1">
+                        <label for="input-sell-coins">Coins</label>
+                    </div>
+
+                    <button id="button-sell-coins" type="button" class="btn btn-primary">Sell</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Section: Cards-->
+{% endblock %}
+
+{% block scripts %}
+<script>
+    function updateCoinToWeiRate(retry = false) {
+        if (ALSETContract == null) {
+            if (retry) {
+                updateCoinToWeiRate();
+            }
+
+            return;
+        }
+
+        ALSETContract.methods.coins_to_wei_rate()
+            .call({
+                from: account
+            })
+            .then((res) => {
+                coins_to_wei_rate = res;
+
+                $("#spanCoinToWeiRate").text("1 coins = " + res + " wei");
+            });
+    }
+
+    function buyCoins(numCoins) {
+        if (ALSETContract == null) {
+            alert("Not connected to smart contract, please try again later.");
+            return;
+        }
+
+        ALSETContract.methods.buyCoins(numCoins)
+            .send({
+                from: account,
+                value: numCoins * coins_to_wei_rate
+            })
+            .on('transactionHash', (hash) => {
+                console.log("buyCoins(): hash: " + hash);
+
+                var receipt = web3.eth.getTransactionReceipt(hash)
+                    .then((receipt) => {
+                        console.log("buyCoins(): Got receipt for transaction: " + hash);
+
+                        updateEquity();
+                    });
+            })
+            .on("error", (err) => {
+                alert(err.message);
+            })
+            .on("revert", (err) => {
+                alert(err.message);
+            });
+    }
+
+    function sellCoins(numCoins) {
+        if (ALSETContract == null) {
+            alert("Not connected to smart contract, please try again later.");
+            return;
+        }
+
+        ALSETContract.methods.sellCoins(numCoins)
+            .send({
+                from: account
+            })
+            .on('transactionHash', (hash) => {
+                console.log("sellCoins(): hash: " + hash);
+
+                var receipt = web3.eth.getTransactionReceipt(hash)
+                    .then((receipt) => {
+                        console.log("sellCoins(): Got receipt for transaction: " + hash);
+
+                        updateEquity();
+                    });
+            })
+            .on("error", (err) => {
+                alert(err.message);
+            })
+            .on("revert", (err) => {
+                alert(err.message);
+            });
+    }
+
+    $(function() {
+        updateCoinToWeiRate();
+        setInterval(() => {
+            updateCoinToWeiRate();
+        }, 3000);
+
+        $("#button-buy-coins").click(function() {
+            if (coins_to_wei_rate === undefined) {
+                alert("Coins to wei rate not yet determined, please try again later.");
+                return;
+            }
+
+            var numCoins = parseInt($("#input-buy-coins").val());
+            console.log("numCoins: " + numCoins);
+            console.log("coins_to_wei_rate: " + coins_to_wei_rate);
+
+            buyCoins(numCoins);
+        });
+
+        $("#button-sell-coins").click(function() {
+            if (coins_to_wei_rate === undefined) {
+                alert("Coins to wei rate not yet determined, please try again later.");
+                return;
+            }
+
+            var numCoins = parseInt($("#input-sell-coins").val());
+            console.log("numCoins: " + numCoins);
+            console.log("coins_to_wei_rate: " + coins_to_wei_rate);
+
+            sellCoins(numCoins);
+        });
+    });
+</script>
+{% endblock %}

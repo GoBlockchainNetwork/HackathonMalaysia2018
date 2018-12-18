@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>
+        {% block title %}
+        ALSET
+        {% endblock %}
+    </title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <!--<link href="css/mdb.min.css" rel="stylesheet">-->
+    <link href="{{ url_for('static', filename='css/mdb.min.css') }}" rel="stylesheet">
+
+    <!-- MDBootstrap Datatables  -->
+    <link href="{{ url_for('static', filename='css/addons/datatables.min.css') }}" rel="stylesheet">
+
+    <!-- Your custom styles (optional) -->
+    <!--<link href="css/style.min.css" rel="stylesheet">-->
+    <link href="{{ url_for('static', filename='css/style.min.css') }}" rel="stylesheet">
+
+    {% block css %}
+    {% endblock %}
+</head>
+
+<body>
+<!--Main Navigation-->
+<header>
+    <!-- Navbar -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+        <div class="container">
+            <!-- Brand -->
+            <a class="navbar-brand waves-effect" href="/">
+                <strong class="blue-text">ALSET</strong>
+            </a>
+
+            <!-- Collapse -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Links -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Left -->
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect" href="{{ url_for('home') }}">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect" href="{{ url_for('coins') }}">Coins</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect" href="{{ url_for('jobs') }}">Jobs</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect" href="{{ url_for('claim') }}">Claim</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect" href="{{ url_for('team') }}">Team</a>
+                    </li>
+                </ul>
+
+                <!-- Right -->
+                <ul class="navbar-nav nav-flex-icons">
+                    <!--<li class="nav-item">-->
+                    <!--<a href="https://www.facebook.com/mdbootstrap" class="nav-link">-->
+                    <!--<i class="fa fa-facebook"></i>-->
+                    <!--</a>-->
+                    <!--</li>-->
+
+                    <li class="nav-item">
+                        <a class="nav-link border border-light rounded">
+                            <i class="fa fa-user-circle" aria-hidden="true"></i> <span id="spanAccount"></span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link">
+                            <i class="fa fa-gg-circle "></i> <span id="spanEquity"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar -->
+</header>
+<!--Main Navigation-->
+
+<!--Main layout-->
+<main class="mt-5 pt-5">
+    <div class="container">
+        <!-- Modal -->
+        <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"></h5>
+
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                    </div>
+
+                    <!--<div class="modal-footer">-->
+                    <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+                    <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+                    <!--</div>-->
+                </div>
+            </div>
+        </div>
+
+        {% block contents %}
+        Your contents here.
+        {% endblock %}
+    </div>
+</main>
+<!--Main layout-->
+
+<!--Footer-->
+<footer class="fixed-bottom page-footer text-center font-small mdb-color darken-2 mt-4 wow fadeIn">
+    <!--<hr class="my-4">-->
+
+    <!--Copyright-->
+    <div class="footer-copyright py-3">
+        © 2018 Copyright:
+        <a href="https://mdbootstrap.com/education/bootstrap/" target="_blank"> ALSET </a>
+    </div>
+    <!--/.Copyright-->
+</footer>
+<!--/.Footer-->
+
+<!-- SCRIPTS -->
+<!-- JQuery -->
+<!--<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>-->
+<script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
+<!-- Bootstrap tooltips -->
+<!--<script type="text/javascript" src="js/popper.min.js"></script>-->
+<script type="text/javascript" src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+<!-- Bootstrap core JavaScript -->
+<!--<script type="text/javascript" src="js/bootstrap.min.js"></script>-->
+<script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+<!-- MDB core JavaScript -->
+<!--<script type="text/javascript" src="js/mdb.min.js"></script>-->
+<script type="text/javascript" src="{{ url_for('static', filename='js/mdb.min.js') }}"></script>
+
+<!-- MDBootstrap Datatables  -->
+<script type="text/javascript" src="{{ url_for('static', filename='js/addons/datatables.min.js') }}"></script>
+
+<!-- Chart.js -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
+
+<!--<script src="js/web3/dist/web3.min.js"></script>-->
+<!--<script src="{{ url_for('static', filename='js/web3/dist/web3.min.js') }}"></script>-->
+<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js"
+        integrity="sha256-nWBTbvxhJgjslRyuAKJHK+XcZPlCnmIAAMixz6EefVk=" crossorigin="anonymous"></script>
+
+<!-- Initializations -->
+<script type="text/javascript">
+// Animations initialization
+   new WOW().init();
+
+   if (typeof web3 !== 'undefined') {
+       web3 = new Web3(web3.currentProvider);
+   } else {
+       // set the provider you want from Web3.providers
+       web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
+   }
+
+   //console.log(web3);
+
+   var account; // web3.js account
+   var ALSETContract; // Our smart contract
+
+   const state_enum_to_string = {
+       0: "Created",
+       1: "Picked",
+       2: "Delivered",
+       3: "Completed",
+       4: "Cancelled"
+   };
+   const state_string_to_enum = {
+       "Created": 0,
+       "Picked": 1,
+       "Delivered": 2,
+       "Completed": 3,
+       "Cancelled": 4
+   }
+
+   // Get user selected account from web3.js
+   function updateAccount() {
+       web3.eth.getAccounts().then((accounts) => {
+           account = accounts[0];
+           //console.log("account: " + account);
+
+           $("#spanAccount").text(account);
+       });
+   }
+
+   // Get user equity in coins
+   function updateEquity() {
+       if (account != null) {
+           ALSETContract.methods.equity_in_ALSETcoins()
+               .call({
+                   from: account
+               })
+               .then((equity) => {
+                   //console.log("equity: " + equity);
+
+                   $("#spanEquity").text(equity);
+               });
+       }
+   }
+
+   // Periodically update the user selected account and his equity
+   setInterval(() => {
+       updateAccount();
+       updateEquity();
+   }, 1000);
+
+   $.getJSON("{{ url_for('build_static', filename='contracts/ALSET.json') }}", function(data) {
+       //console.log(data.abi);
+
+       //ALSETContract = web3.eth.contract(data.abi).at("0x5C77166b617Fd138aF5403e2225F1c9e09C34773");
+       ALSETContract = new web3.eth.Contract(data.abi, "{{ contract_address }}");
+       //console.log(ALSETContract);
+   });
+</script>
+{% block scripts %}
+{% endblock %}
+</body>
+</html>

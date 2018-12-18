@@ -1,0 +1,89 @@
+{% extends 'base.html '%}
+
+{% block contents %}
+<!-- Default form subscription -->
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <div class="text-center border border-light p-5">
+            <p class="h4 mb-4">Claim form</p>
+
+            <!--<p>Join our mailing list. We write rarely, but only the best content.</p>-->
+
+            <!--<p>-->
+            <!--<a href="" target="_blank">See the last newsletter</a>-->
+            <!--</p>-->
+
+            <!-- Name -->
+            <input type="number" id="inputClaimAmount" class="form-control mb-4" placeholder="Amount" min="0">
+
+            <!-- Email -->
+            <!--<input type="email" id="defaultSubscriptionFormEmail" class="form-control mb-4" placeholder="E-mail">-->
+
+            <input type="text" id="inputDigitalId" class="form-control mb-4" placeholder="Digital ID">
+
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupFileAddon01">Supporting documents</span>
+                </div>
+
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="inputGroupFile01"
+                           aria-describedby="inputGroupFileAddon01">
+                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                </div>
+            </div>
+
+            <br><br><br><br><br>
+
+            <!-- Sign in button -->
+            <button id="buttonSubmitClaim" class="btn btn-info btn-block">Submit claim</button>
+        </div>
+    </div>
+</div>
+
+<br><br><br><br><br>
+<!-- Default form subscription -->
+{% endblock %}
+
+{% block scripts %}
+<script>
+    function submitClaim(claimTokens) {
+        console.log("submitClaim(): claimTokens: " + claimTokens);
+
+        if (ALSETContract == null) {
+            alert("Not connected to smart contract, please try again later.");
+            return;
+        }
+
+        ALSETContract.methods.submitClaim(claimTokens)
+            .send({
+                from: account
+            })
+            .on('transactionHash', (hash) => {
+                console.log("submitClaim(): hash: " + hash);
+
+                var receipt = web3.eth.getTransactionReceipt(hash)
+                    .then((receipt) => {
+                        console.log("submitClaim(): Got receipt for transaction: " + hash);
+
+                        alert("Claim was successful");
+                    });
+            })
+            .on("error", (err) => {
+                alert(err.message);
+            })
+            .on("revert", (err) => {
+                alert(err.message);
+            });
+    }
+
+    $(function() {
+        $("#buttonSubmitClaim").click(function(event) {
+            //alert("clicked");
+
+
+            submitClaim(Number($("#inputClaimAmount").val()));
+        });
+    });
+</script>
+{% endblock %}

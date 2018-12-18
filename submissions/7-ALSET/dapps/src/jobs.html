@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Material Design Bootstrap</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!--Main Navigation-->
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+            <div class="container">
+
+                <!-- Brand -->
+                <a class="navbar-brand waves-effect" href="https://mdbootstrap.com/docs/jquery/" target="_blank">
+                    <strong class="blue-text">ALSET</strong>
+                </a>
+
+                <!-- Collapse -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Links -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left -->
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link waves-effect" href="#">Home
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link waves-effect" href="coins.html" target="_blank">Coins</a>
+                        </li>
+
+                        <li class="nav-item active">
+                            <a class="nav-link waves-effect" href="jobs.html" target="_blank">Jobs</a>
+                        </li>
+                    </ul>
+
+                    <!-- Right -->
+                    <!-- <ul class="navbar-nav nav-flex-icons">
+                        <li class="nav-item">
+                            <a href="https://www.facebook.com/mdbootstrap" class="nav-link waves-effect" target="_blank">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="https://twitter.com/MDBootstrap" class="nav-link waves-effect" target="_blank">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="https://github.com/mdbootstrap/bootstrap-material-design" class="nav-link border border-light rounded waves-effect" target="_blank">
+                                <i class="fa fa-github mr-2"></i>MDB GitHub
+                            </a>
+                        </li>
+                    </ul> -->
+                </div>
+            </div>
+        </nav>
+        <!-- Navbar -->
+    </header>
+    <!--Main Navigation-->
+
+    <!--Main layout-->
+    <main class="mt-5 pt-5">
+        <div class="container">
+            <!--Section: Cards-->
+            <section class="pt-5">
+                <!-- Heading & Description -->
+                <div class="wow fadeIn">
+                    <!--Section heading-->
+                    <h2 class="h1 text-center mb-5">List of open jobs</h2>
+
+                    <!--Section description-->
+                    <!-- <p class="text-center">
+                      Coins: 120142120
+                    </p> -->
+
+                    <!-- <p class="text-center mb-5 pb-5">Bla bla black sheep have you any wool?</p> -->
+                </div>
+                <!-- Heading & Description -->
+
+                <div class="row">
+                    <div class="col-12">
+                        <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th class="th-sm">Name</th>
+                                    <th class="th-sm">Rewards</th>
+                                    <th class="th-sm">Collateral</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <!-- <tr>
+                          <td>Tiger Nixon</td>
+                          <td>System Architect</td>
+                          <td>Edinburgh</td>
+                          <td>61</td>
+                          <td>2011/04/25</td>
+                          <td>$320,800</td>
+                        </tr>
+
+                        <tr>
+                          <td>Ashton Cox</td>
+                          <td>Junior Technical Author</td>
+                          <td>San Francisco</td>
+                          <td>66</td>
+                          <td>2009/01/12</td>
+                          <td>$86,000</td>
+                        </tr> -->
+                            </tbody>
+
+                            <tfoot>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Rewards</th>
+                                    <th>Collateral</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="row mt-5">
+                    <div class="col-12">
+                        <div class="card">
+                            <h5 class="card-header h5">Post new job</h5>
+
+                            <div class="card-body">
+                                <!-- <h5 class="card-title">Special title treatment</h5> -->
+
+                                <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+
+                                <!-- <button type="button" class="btn btn-primary">Add</button> -->
+
+                                <!-- Extended material form grid -->
+                                <form>
+                                    <!-- Grid row -->
+                                    <div class="form-row">
+                                        <!-- Grid column -->
+                                        <div class="col-md-12">
+                                            <!-- Material input -->
+                                            <div class="md-form form-group">
+                                                <input type="email" class="form-control" id="inputEmail4MD" placeholder="Name">
+                                                <label for="inputEmail4MD">Name</label>
+                                            </div>
+                                        </div>
+                                        <!-- Grid column -->
+                                    </div>
+                                    <!-- Grid row -->
+
+                                    <!-- Grid row -->
+                                    <div class="form-row">
+                                        <!-- Grid column -->
+                                        <div class="col-md-5">
+                                            <!-- Material input -->
+                                            <div class="md-form form-group">
+                                                <input type="number" class="form-control" id="inputCityMD" min="1">
+                                                <label for="inputCityMD">Rewards</label>
+                                            </div>
+                                        </div>
+                                        <!-- Grid column -->
+
+                                        <div class="col-md-2"></div>
+
+                                        <!-- Grid column -->
+                                        <div class="col-md-5">
+                                            <!-- Material input -->
+                                            <div class="md-form form-group">
+                                                <input type="number" class="form-control" id="inputZipMD" min="1">
+                                                <label for="inputZipMD">Collateral</label>
+                                            </div>
+                                        </div>
+                                        <!-- Grid column -->
+                                    </div>
+
+                                    <!-- Grid row -->
+                                    <button type="submit" class="btn btn-primary btn-md">Post</button>
+                                </form>
+                                <!-- Extended material form grid -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--Section: Cards-->
+
+        </div>
+    </main>
+    <!--Main layout-->
+
+    <!--Footer-->
+    <footer class="fixed-bottom page-footer text-center font-small mdb-color darken-2 mt-4 wow fadeIn">
+        <!--Call to action-->
+        <!-- <div class="pt-4">
+            <a class="btn btn-outline-white" href="https://mdbootstrap.com/docs/jquery/getting-started/download/" target="_blank" role="button">Download MDB
+                <i class="fa fa-download ml-2"></i>
+            </a>
+
+            <a class="btn btn-outline-white" href="https://mdbootstrap.com/education/bootstrap/" target="_blank" role="button">Start free tutorial
+                <i class="fa fa-graduation-cap ml-2"></i>
+            </a>
+        </div> -->
+        <!--/.Call to action-->
+
+        <hr class="my-4">
+
+        <!-- Social icons -->
+        <!-- <div class="pb-4">
+            <a href="https://www.facebook.com/mdbootstrap" target="_blank">
+                <i class="fa fa-facebook mr-3"></i>
+            </a>
+
+            <a href="https://twitter.com/MDBootstrap" target="_blank">
+                <i class="fa fa-twitter mr-3"></i>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=7MUISDJ5ZZ4" target="_blank">
+                <i class="fa fa-youtube mr-3"></i>
+            </a>
+
+            <a href="https://plus.google.com/u/0/b/107863090883699620484" target="_blank">
+                <i class="fa fa-google-plus mr-3"></i>
+            </a>
+
+            <a href="https://dribbble.com/mdbootstrap" target="_blank">
+                <i class="fa fa-dribbble mr-3"></i>
+            </a>
+
+            <a href="https://pinterest.com/mdbootstrap" target="_blank">
+                <i class="fa fa-pinterest mr-3"></i>
+            </a>
+
+            <a href="https://github.com/mdbootstrap/bootstrap-material-design" target="_blank">
+                <i class="fa fa-github mr-3"></i>
+            </a>
+
+            <a href="http://codepen.io/mdbootstrap/" target="_blank">
+                <i class="fa fa-codepen mr-3"></i>
+            </a>
+        </div> -->
+        <!-- Social icons -->
+
+        <!--Copyright-->
+        <div class="footer-copyright py-3">
+            © 2018 Copyright:
+            <a href="https://mdbootstrap.com/education/bootstrap/" target="_blank"> ALSET </a>
+        </div>
+        <!--/.Copyright-->
+    </footer>
+    <!--/.Footer-->
+
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+
+    <script src="js/web3/dist/web3.min.js"></script>
+
+    <!-- Initializations -->
+    <script type="text/javascript">
+        // Animations initialization
+        new WOW().init();
+
+        if (typeof web3 !== 'undefined') {
+            web3 = new Web3(web3.currentProvider);
+        } else {
+            // set the provider you want from Web3.providers
+            web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
+        }
+
+        console.log(web3);
+
+        web3.eth.defaultAccount = web3.eth.accounts[0];
+
+        // Document ready
+        $(function() {
+            $.getJSON("ALSET.json", function(data) {
+                console.log(data.abi);
+
+                ALSETContract = web3.eth.contract(data.abi).at("0x5C77166b617Fd138aF5403e2225F1c9e09C34773");
+                console.log(ALSETContract);
+            })
+        });
+    </script>
+</body>
+
+</html>

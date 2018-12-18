@@ -1,0 +1,739 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+<!--Section: Main info-->
+<section class="mt-5 wow fadeIn">
+    <!--Grid row-->
+    <div class="row">
+        <!--Grid column-->
+        <div class="col-md-6 mb-4">
+            <img src="{{ url_for('static', filename='img/team_logo_transparent_bg.png') }}"
+                 class="img-fluid z-depth-1-half" alt="">
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-md-6 mb-4">
+            <!-- Main heading -->
+            <h3 class="h3 mb-3">ALSET</h3>
+
+            <p>This page is created with Material Design for Bootstrap (
+                <strong>MDB</strong> ) framework.</p>
+            <p>Read details below to learn more about ALSET.</p>
+            <!-- Main heading -->
+
+            <hr>
+
+            <p>
+                <strong>400+</strong> material UI elements,
+                <strong>600+</strong> material icons,
+                <strong>74</strong> CSS animations, SASS files, templates, tutorials and many more.
+                <strong>Free for personal and commercial use.</strong>
+            </p>
+
+            <!-- CTA -->
+            <!--<a target="_blank" href="https://mdbootstrap.com/docs/jquery/getting-started/download/"-->
+            <!--class="btn btn-grey btn-md">Download-->
+            <!--<i class="fa fa-download ml-1"></i>-->
+            <!--</a>-->
+
+            <!--<a target="_blank" href="https://mdbootstrap.com/docs/jquery/components/" class="btn btn-grey btn-md">Live-->
+            <!--demo-->
+            <!--<i class="fa fa-image ml-1"></i>-->
+            <!--</a>-->
+        </div>
+        <!--Grid column-->
+    </div>
+    <!--Grid row-->
+</section>
+<!--Section: Main info-->
+
+<hr class="my-5">
+
+<!--Section: Main features & Quick Start-->
+<section>
+    <h3 class="h3 text-center mb-5">About ALSET</h3>
+
+    <!--Grid row-->
+    <div class="row wow fadeIn">
+        <!--Grid column-->
+        <div class="col-lg-6 col-md-12 px-4">
+            <!--First row-->
+            <div class="row">
+                <div class="col-1 mr-3">
+                    <i class="fa fa-chain fa-2x indigo-text"></i>
+                </div>
+
+                <div class="col-10">
+                    <h5 class="feature-title">Contract address</h5>
+                    <p class="grey-text">{{ contract_address }}</p>
+                </div>
+            </div>
+            <!--/First row-->
+
+            <div style="height:30px"></div>
+
+            <!--&lt;!&ndash;Second row&ndash;&gt;-->
+            <!--<div class="row">-->
+                <!--<div class="col-1 mr-3">-->
+                    <!--<i class="fa fa-book fa-2x blue-text"></i>-->
+                <!--</div>-->
+
+                <!--<div class="col-10">-->
+                    <!--<h5 class="feature-title">Detailed documentation</h5>-->
+
+                    <!--<p class="grey-text">We give you detailed user-friendly documentation at your disposal. It will help-->
+                        <!--you to implement your ideas-->
+                        <!--easily.-->
+                    <!--</p>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;/Second row&ndash;&gt;-->
+
+            <!--<div style="height:30px"></div>-->
+
+            <!--&lt;!&ndash;Third row&ndash;&gt;-->
+            <!--<div class="row">-->
+                <!--<div class="col-1 mr-3">-->
+                    <!--<i class="fa fa-graduation-cap fa-2x cyan-text"></i>-->
+                <!--</div>-->
+
+                <!--<div class="col-10">-->
+                    <!--<h5 class="feature-title">Lots of tutorials</h5>-->
+                    <!--<p class="grey-text">We care about the development of our users. We have prepared numerous-->
+                        <!--tutorials, which allow you to learn-->
+                        <!--how to use MDB as well as other technologies.</p>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;/Third row&ndash;&gt;-->
+        </div>
+        <!--/Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-6 col-md-12">
+            <!--<p class="h5 text-center mb-4">Overview</p>-->
+
+            <!--<div class="embed-responsive embed-responsive-16by9">-->
+            <!--<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/cXTThxoywNQ"-->
+            <!--allowfullscreen></iframe>-->
+            <!--</div>-->
+
+            <!--Card-->
+            <div class="card mb-4">
+                <!--Card content-->
+                <div class="card-body">
+                    <!-- List group links -->
+                    <div class="list-group list-group-flush">
+                        <a class="list-group-item list-group-item-action waves-effect">Total coins available
+                            <span id="span-total-coins-avail" class="badge badge-danger badge-pill pull-right">
+                            </span>
+                        </a>
+
+                        <a class="list-group-item list-group-item-action waves-effect">Total coins bought
+                            <span id="span-total-coins-bought" class="badge badge-success badge-pill pull-right">
+                            </span>
+                        </a>
+
+                        <a class="list-group-item list-group-item-action waves-effect">Total coins remaining
+                            <span id="span-total-coins-remain" class="badge badge-warning badge-pill pull-right">
+                            </span>
+                        </a>
+
+                        <a class="list-group-item list-group-item-action waves-effect">Total jobs
+                            <span id="span-jobs-total" class="badge badge-primary badge-pill pull-right"></span>
+                        </a>
+
+                        <a class="list-group-item list-group-item-action waves-effect">Open jobs
+                            <span id="span-jobs-open" class="badge badge-primary badge-pill pull-right"></span>
+                        </a>
+
+                        <a class="list-group-item list-group-item-action waves-effect">Open job rewards
+                            <span id="span-jobs-open-rewards" class="badge badge-primary badge-pill pull-right"></span>
+                        </a>
+
+                        <a class="list-group-item list-group-item-action waves-effect">Completed jobs
+                            <span id="span-jobs-completed" class="badge badge-primary badge-pill pull-right"></span>
+                        </a>
+
+                        <a class="list-group-item list-group-item-action waves-effect">Completed job rewards
+                            <span id="span-jobs-completed-rewards"
+                                  class="badge badge-primary badge-pill pull-right"></span>
+                        </a>
+                    </div>
+                    <!-- List group links -->
+
+                </div>
+
+            </div>
+            <!--/.Card-->
+        </div>
+        <!--/Grid column-->
+    </div>
+    <!--/Grid row-->
+</section>
+<!--Section: Main features & Quick Start-->
+
+<hr class="my-5">
+
+<!--Section: Not enough-->
+<section>
+    <h2 class="my-5 h3 text-center">open-sourced, transparent...</h2>
+    <p>Our source codes are open sourced.</p>
+    <p>ALSET.sol</p>
+
+    <pre class="pre-scrollable"><code>
+pragma solidity ^0.4.22;
+
+contract ALSET {
+
+    struct Customer {
+        address customer_address;
+        uint coins;
+
+        uint coinsInsuranceContributed;
+        uint coinsInsuranceClaimed;
+    }
+
+    uint public max_ALSETcoins = 1000000;
+
+    uint public insurance_pool_coins = 500000;
+    uint public max_claim_coins = 200;
+
+    uint public coins_to_wei_rate = 1000;
+
+    uint public total_ALSETcoins_bought = 0;
+
+    function equity_in_ALSETcoins() public view returns(uint) {
+        return customers[msg.sender].coins;
+    }
+
+    function buyCoins(uint coins) public payable returns(uint) {
+        require(coins <= max_ALSETcoins - total_ALSETcoins_bought, "Not enough coins available.");
+
+        uint cost = coins * coins_to_wei_rate;
+
+        require(msg.value >= cost, "Not enough wei.");
+
+        customers[msg.sender].coins += coins;
+        total_ALSETcoins_bought += coins;
+
+        return coins;
+    }
+
+    function sellCoins(uint coins) public returns(uint) {
+        require(customers[msg.sender].coins >= coins, "Not enough coins available.");
+
+        customers[msg.sender].coins -= coins;
+        total_ALSETcoins_bought -= coins;
+
+        msg.sender.transfer(coins * coins_to_wei_rate);
+
+        return coins;
+    }
+
+    enum State {
+        Created,
+        Picked,
+        Delivered,
+        Completed,
+        Cancelled
+    }
+
+    struct Job {
+        uint id;
+        string name;
+
+        address poster;
+        address dispatcher;
+
+        uint coinsReward;
+        uint coinsCollateral;
+
+        uint pickuplong;
+        uint pickuplat;
+        uint dropofflong;
+        uint dropofflat;
+
+        uint timeAdded;
+        uint timeDelivered;
+
+        State state;
+    }
+
+    mapping(address => Customer) public customers;
+    mapping(uint => Job) public jobs;
+
+    uint public jobsCount = 0;
+
+    modifier onlyJobOfType(uint jobId, State state) {
+        require(jobs[jobId].state == state, "Incorrect job type.");
+        _;
+    }
+
+    modifier onlyIfAfford(uint coins) {
+        require(customers[msg.sender].coins >= coins, "Don't have enough coins.");
+        _;
+    }
+
+    modifier onlyByJobOwner(uint jobId) {
+        require(jobs[jobId].poster == msg.sender, "Not job owner.");
+        _;
+    }
+
+    modifier onlyByJobDispatcher(uint jobId) {
+        require(jobs[jobId].dispatcher == msg.sender, "Not job dispatcher.");
+        _;
+    }
+
+    modifier onlyIfDispatchedAtLeastOnce(address sender) {
+        uint dispatchCount = 0;
+
+        for (uint i = 0; i < jobsCount; i++) {
+            if (jobs[i].dispatcher == sender) {
+                dispatchCount++;
+            }
+        }
+
+        require(dispatchCount > 0, "Not entitled for claim.");
+        _;
+    }
+
+    function addJob(string jobName, uint coinsReward, uint coinsCollateral, uint pickuplong, uint pickuplat, uint dropofflong, uint dropofflat) public onlyIfAfford(coinsReward) {
+        jobs[jobsCount] = Job(
+            jobsCount,
+            jobName,
+            msg.sender,
+            0,
+            coinsReward,
+            coinsCollateral,
+            pickuplong,
+            pickuplat,
+            dropofflong,
+            dropofflat,
+            now,
+            0,
+            State.Created
+        );
+        jobsCount++;
+        customers[msg.sender].coins -= coinsReward;
+    }
+
+    function cancelJob(uint jobId) public onlyJobOfType(jobId, State.Created) onlyByJobOwner(jobId) {
+        jobs[jobId].state = State.Cancelled;
+
+        customers[jobs[jobId].poster].coins += jobs[jobId].coinsReward;
+    }
+
+    function pickJob(uint jobId) public onlyJobOfType(jobId, State.Created) onlyIfAfford(jobs[jobId].coinsCollateral) {
+        for (uint i = 0; i < jobsCount; i++) {
+            if (jobs[i].id == jobId) {
+                customers[msg.sender].coins -= jobs[jobId].coinsCollateral;
+
+                jobs[i].state = State.Picked;
+                jobs[i].dispatcher = msg.sender;
+
+                break;
+            }
+        }
+    }
+
+    function deliveredJob(uint jobId) public onlyByJobDispatcher(jobId) {
+        jobs[jobId].timeDelivered = now;
+        jobs[jobId].state = State.Delivered;
+    }
+
+    function acknowledgeDelivery(uint jobId) public onlyByJobOwner(jobId) {
+        require(
+            jobs[jobId].state == State.Picked || jobs[jobId].state == State.Delivered,
+            "Invalid job state."
+        );
+
+        customers[jobs[jobId].dispatcher].coins += jobs[jobId].coinsCollateral;
+        customers[jobs[jobId].dispatcher].coins += jobs[jobId].coinsReward;
+
+        jobs[jobId].state = State.Completed;
+
+        customers[jobs[jobId].dispatcher].coins -= jobs[jobId].coinsReward / 10;
+        insurance_pool_coins += jobs[jobId].coinsReward / 10;
+    }
+
+    function autoClearPaymentForDeliveredJob() private {
+        uint timeNow = now;
+
+        for (uint i = 0; i < jobsCount; i++) {
+            if (jobs[i].state == State.Delivered &&
+                jobs[i].timeDelivered - timeNow >= 3 days) {
+                customers[jobs[i].dispatcher].coins += jobs[i].coinsCollateral;
+                customers[jobs[i].dispatcher].coins += jobs[i].coinsReward;
+
+                jobs[i].state == State.Completed;
+            }
+        }
+    }
+
+    function getTransactionsCountRewardsAndCollaterals(State state) public view returns(uint, uint, uint) {
+        uint count = 0;
+        uint coinsReward = 0;
+        uint coinsCollateral = 0;
+
+        for (uint i = 0; i < jobsCount; i++) {
+            if (jobs[i].state == state) {
+                count++;
+                coinsReward += jobs[i].coinsReward;
+                coinsCollateral += jobs[i].coinsCollateral;
+            }
+        }
+
+        return (count, coinsReward, coinsCollateral);
+    }
+
+    function getDispatcherRoleCountAndRewards(address sender) public view returns(uint, uint) {
+        uint count = 0;
+        uint coinsReward = 0;
+
+        for (uint i = 0; i < jobsCount; i++) {
+            if (jobs[i].dispatcher == sender) {
+                count++;
+                coinsReward += jobs[i].coinsReward;
+            }
+        }
+
+        return (count, coinsReward);
+    }
+
+    function getJobPosterRoleCountAndRewards(address sender) public view returns(uint, uint) {
+        uint count = 0;
+        uint coinsReward = 0;
+
+        for (uint i = 0; i < jobsCount; i++) {
+            if (jobs[i].poster == sender) {
+                count++;
+                coinsReward += jobs[i].coinsReward;
+            }
+        }
+
+        return (count, coinsReward);
+    }
+
+    function submitClaim(uint claimTokens) public onlyIfDispatchedAtLeastOnce(msg.sender) returns(uint) {
+        require(claimTokens <= insurance_pool_coins, "Not enough coins in the insurance pool.");
+        require(claimTokens <= max_claim_coins, "Maximum claim tokens exceeded.");
+
+        for (uint i = 0; i < jobsCount; i++) {
+            if (jobs[i].dispatcher == msg.sender) {
+                // Deduct from the pool...
+                insurance_pool_coins -= claimTokens;
+                // ...and add to customer
+                customers[msg.sender].coins += claimTokens;
+
+                return claimTokens;
+            }
+        }
+
+        return 0;
+    }
+}
+    </code></pre>
+</section>
+<!--Section: Not enough-->
+
+<!--<hr class="mb-5">-->
+
+<!--Section: More-->
+<section>
+    <h2 class="my-5 h3 text-center">...and more</h2>
+
+    <!--First row-->
+    <div class="row features-small mt-5 wow fadeIn">
+        <!--Grid column-->
+        <div class="col-xl-3 col-lg-6">
+            <!--Grid row-->
+            <div class="row">
+                <div class="col-2">
+                    <i class="fa fa-chain fa-2x mb-1 indigo-text" aria-hidden="true"></i>
+                </div>
+
+                <div class="col-10 mb-2 pl-3">
+                    <h5 class="feature-title font-bold mb-1">Powered by Ethereum</h5>
+
+                    <p class="grey-text mt-2">
+                        By running on the latest blockchain technologies, be safe assured that the market rules and your
+                        investment will not be tempered with.
+                    </p>
+                </div>
+            </div>
+            <!--/Grid row-->
+        </div>
+        <!--/Grid column-->
+
+        <!--Grid column-->
+        <div class="col-xl-3 col-lg-6">
+            <!--Grid row-->
+            <div class="row">
+                <div class="col-2">
+                    <i class="fa fa-users fa-2x mb-1 indigo-text" aria-hidden="true"></i>
+                </div>
+
+                <div class="col-10 mb-2">
+                    <h5 class="feature-title font-bold mb-1">Community run</h5>
+
+                    <p class="grey-text mt-2">
+                        Leverages on the power of the masses to get your parcel delivered.
+                    </p>
+                </div>
+            </div>
+            <!--/Grid row-->
+        </div>
+        <!--/Grid column-->
+
+        <!--Grid column-->
+        <div class="col-xl-3 col-lg-6">
+            <!--Grid row-->
+            <div class="row">
+                <div class="col-2">
+                    <i class="fa fa-database fa-2x mb-1 indigo-text" aria-hidden="true"></i>
+                </div>
+
+                <div class="col-10 mb-2">
+                    <h5 class="feature-title font-bold mb-1">Fueled by data</h5>
+
+                    <p class="grey-text mt-2">Fully utilizing all gathered data to optimize operations.
+                    </p>
+                </div>
+            </div>
+            <!--/Grid row-->
+        </div>
+        <!--/Grid column-->
+
+        <!--Grid column-->
+        <div class="col-xl-3 col-lg-6">
+            <!--Grid row-->
+            <div class="row">
+                <div class="col-2">
+                    <i class="fa fa-android fa-2x mb-1 indigo-text" aria-hidden="true"></i>
+                </div>
+
+                <div class="col-10 mb-2">
+                    <h5 class="feature-title font-bold mb-1">Machine learning</h5>
+
+                    <p class="grey-text mt-2">
+                        Utilizing the latest and greatest machine learning techniques to ensure that your parcel reaches
+                        its destination quickly and safely.
+                    </p>
+                </div>
+            </div>
+            <!--/Grid row-->
+        </div>
+        <!--/Grid column-->
+    </div>
+    <!--/First row-->
+
+    <!--Second row-->
+    <!--<div class="row features-small mt-4 wow fadeIn">-->
+    <!--&lt;!&ndash;Grid column&ndash;&gt;-->
+    <!--<div class="col-xl-3 col-lg-6">-->
+    <!--&lt;!&ndash;Grid row&ndash;&gt;-->
+    <!--<div class="row">-->
+    <!--<div class="col-2">-->
+    <!--<i class="fa fa-cubes fa-2x mb-1 indigo-text" aria-hidden="true"></i>-->
+    <!--</div>-->
+
+    <!--<div class="col-10 mb-2">-->
+    <!--<h5 class="feature-title font-bold mb-1">Modularity</h5>-->
+
+    <!--<p class="grey-text mt-2">Material Design for Bootstrap comes with both, compiled, ready to use-->
+    <!--libraries including all features as-->
+    <!--well as modules for CSS (SASS files) and JS.</p>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--&lt;!&ndash;/Grid row&ndash;&gt;-->
+    <!--</div>-->
+    <!--&lt;!&ndash;/Grid column&ndash;&gt;-->
+
+    <!--&lt;!&ndash;Grid column&ndash;&gt;-->
+    <!--<div class="col-xl-3 col-lg-6">-->
+    <!--&lt;!&ndash;Grid row&ndash;&gt;-->
+    <!--<div class="row">-->
+    <!--<div class="col-2">-->
+    <!--<i class="fa fa-question fa-2x mb-1 indigo-text" aria-hidden="true"></i>-->
+    <!--</div>-->
+
+    <!--<div class="col-10 mb-2">-->
+    <!--<h5 class="feature-title font-bold mb-1">Technical support</h5>-->
+
+    <!--<p class="grey-text mt-2">We care about reliability. If you have any questions - do not hesitate to-->
+    <!--contact us.-->
+    <!--</p>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--&lt;!&ndash;/Grid row&ndash;&gt;-->
+    <!--</div>-->
+    <!--&lt;!&ndash;/Grid column&ndash;&gt;-->
+
+    <!--&lt;!&ndash;Grid column&ndash;&gt;-->
+    <!--<div class="col-xl-3 col-lg-6">-->
+    <!--&lt;!&ndash;Grid row&ndash;&gt;-->
+    <!--<div class="row">-->
+    <!--<div class="col-2">-->
+    <!--<i class="fa fa-th fa-2x mb-1 indigo-text" aria-hidden="true"></i>-->
+    <!--</div>-->
+
+    <!--<div class="col-10 mb-2">-->
+    <!--<h5 class="feature-title font-bold mb-1">Flexbox</h5>-->
+
+    <!--<p class="grey-text mt-2">MDB fully supports Flex Box. You can forget about alignment issues.</p>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--&lt;!&ndash;/Grid row&ndash;&gt;-->
+    <!--</div>-->
+    <!--&lt;!&ndash;/Grid column&ndash;&gt;-->
+
+    <!--&lt;!&ndash;Grid column&ndash;&gt;-->
+    <!--<div class="col-xl-3 col-lg-6">-->
+    <!--&lt;!&ndash;Grid row&ndash;&gt;-->
+    <!--<div class="row">-->
+    <!--<div class="col-2">-->
+    <!--<i class="fa fa-file-code-o fa-2x mb-1 indigo-text" aria-hidden="true"></i>-->
+    <!--</div>-->
+
+    <!--<div class="col-10 mb-2">-->
+    <!--<h5 class="feature-title font-bold mb-1">SASS files</h5>-->
+
+    <!--<p class="grey-text mt-2">Arranged and well documented .scss files can't wait until you compile-->
+    <!--them.</p>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--&lt;!&ndash;/Grid row&ndash;&gt;-->
+    <!--</div>-->
+    <!--&lt;!&ndash;/Grid column&ndash;&gt;-->
+    <!--</div>-->
+    <!--/Second row-->
+</section>
+<!--Section: More-->
+{% endblock %}
+
+{% block scripts %}
+<script>
+    var totalCoinsAvailable = 0;
+    var totalCoinsBought = 0;
+
+    function updateTotalCoinsAvailable(retry = false) {
+        //console.log("Updating total coins available...");
+
+        if (ALSETContract == null) {
+            if (retry) {
+                setTimeout(() => {
+                    updateTotalCoinsAvailable()
+                }, 1000);
+            }
+
+            return;
+        }
+
+        ALSETContract.methods.max_ALSETcoins().call().then((val) => {
+            totalCoinsAvailable = parseInt(val);
+            $("#span-total-coins-avail").text(val + " ALSET coins");
+            $("#span-total-coins-remain").text((totalCoinsAvailable - totalCoinsBought) + " ALSET coins");
+        });
+    }
+
+    function updateTotalCoinsBought(retry = false) {
+        //console.log("Updating total coins bought...");
+
+        if (ALSETContract == null) {
+            if (retry) {
+                setTimeout(() => {
+                    updateTotalCoinsBought()
+                }, 1000);
+            }
+
+            return;
+        }
+
+        ALSETContract.methods.total_ALSETcoins_bought().call().then((val) => {
+            totalCoinsBought = parseInt(val);
+            $("#span-total-coins-bought").text(val + " ALSET coins");
+            $("#span-total-coins-remain").text((totalCoinsAvailable - totalCoinsBought) + " ALSET coins");
+        });
+    }
+
+    function updateJobCount(retry = false) {
+        //console.log("Updating job count...");
+
+        if (ALSETContract == null) {
+            if (retry) {
+                setTimeout(() => {
+                    updateJobCount()
+                }, 1000);
+            }
+
+            return;
+        }
+
+        ALSETContract.methods.jobsCount()
+            .call()
+            .then((val) => {
+                $("#span-jobs-total").text(val);
+            });
+    }
+
+    function updateOpenJobStats(retry = false) {
+        //console.log("Updating open job stats...");
+
+        if (ALSETContract == null) {
+            if (retry) {
+                setTimeout(() => {
+                    updateOpenJobStats()
+                }, 1000);
+            }
+
+            return;
+        }
+
+        ALSETContract.methods.getTransactionsCountRewardsAndCollaterals(state_string_to_enum["Created"])
+            .call()
+            .then((val) => {
+                $("#span-jobs-open").text(val[0]);
+                $("#span-jobs-open-rewards").text(val[1] + " ALSET coins");
+            });
+    }
+
+    function updateCompletedJobStats(retry = false) {
+        //console.log("Updating completed job stats...");
+
+        if (ALSETContract == null) {
+            if (retry) {
+                setTimeout(() => {
+                    updateCompletedJobStats()
+                }, 1000);
+            }
+
+            return;
+        }
+
+        ALSETContract.methods.getTransactionsCountRewardsAndCollaterals(state_string_to_enum["Completed"])
+            .call()
+            .then((val) => {
+                $("#span-jobs-completed").text(val[0]);
+                $("#span-jobs-completed-rewards").text(val[1] + " ALSET coins");
+            });
+    }
+
+    $(function() {
+        updateTotalCoinsAvailable();
+        updateTotalCoinsBought();
+        updateJobCount();
+        updateOpenJobStats();
+        updateCompletedJobStats();
+
+        setInterval(() => {
+            updateTotalCoinsAvailable();
+            updateTotalCoinsBought();
+            updateJobCount();
+            updateOpenJobStats();
+            updateCompletedJobStats();
+        }, 3000);
+    });
+
+</script>
+{% endblock %}

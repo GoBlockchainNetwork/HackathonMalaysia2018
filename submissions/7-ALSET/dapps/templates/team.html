@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+{% block title %}
+ALSET: Team
+{% endblock %}
+
+{% block contents %}
+<!-- Section: Team v.1 -->
+<section class="team-section text-center my-5">
+    <!-- Section heading -->
+    <h2 class="h1-responsive font-weight-bold my-5">Our amazing team</h2>
+
+    <!-- Section description -->
+    <!--<p class="grey-text w-responsive mx-auto mb-5">-->
+        <!--Here are the team-->
+    <!--</p>-->
+
+    <!-- Grid row -->
+    <div class="row">
+        <!-- Grid column -->
+        <div class="col-lg-4 col-md-6 mb-lg-0 mb-5">
+            <div class="avatar mx-auto">
+                <img src="{{ url_for('static', filename='img/phung_256x256.jpg') }}" class="img-fluid rounded-circle z-depth-1" alt="Sample avatar">
+            </div>
+            <h5 class="font-weight-bold mt-4 mb-3">Phung Cheng Shyong</h5>
+
+            <p class="text-uppercase blue-text"><strong>Chief Data Scientist</strong></p>
+
+            <p class="grey-text">A curious and passionate person who loves data science.</p>
+
+            <ul class="list-unstyled mb-0">
+                <!-- Facebook -->
+                <a href="https://www.facebook.com/phung.c.s" class="p-2 fa-lg fb-ic">
+                    <i class="fa fa-facebook blue-text"></i>
+                </a>
+
+                <!-- Instagram -->
+                <!--<a class="p-2 fa-lg ins-ic">-->
+                <!--<i class="fa fa-instagram blue-text"></i>-->
+                <!--</a>-->
+
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/cheng-shyong-phung-265ba58b/" class="p-2 fa-lg ins-ic">
+                    <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+                </a>
+            </ul>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-lg-4 col-md-6 mb-lg-0 mb-5">
+            <div class="avatar mx-auto">
+                <img src="{{ url_for('static', filename='img/gxkok_256x256.jpg') }}" class="img-fluid rounded-circle z-depth-1" alt="Sample avatar">
+            </div>
+
+            <h5 class="font-weight-bold mt-4 mb-3">Kok Gin Xian</h5>
+
+            <p class="text-uppercase blue-text"><strong>Software Developer & Data Scientist</strong></p>
+
+            <p class="grey-text">An enthusiast and advocate of web, data science, and machine learning.</p>
+
+            <ul class="list-unstyled mb-0">
+                <!-- Facebook -->
+                <a href="https://www.facebook.com/gxkok" class="p-2 fa-lg fb-ic">
+                    <i class="fa fa-facebook blue-text"></i>
+                </a>
+
+                <!-- Instagram -->
+                <!--<a class="p-2 fa-lg ins-ic">-->
+                <!--<i class="fa fa-instagram blue-text"></i>-->
+                <!--</a>-->
+
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/gxkok/" class="p-2 fa-lg ins-ic">
+                    <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+                </a>
+            </ul>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-lg-4 col-md-6 mb-lg-0 mb-5">
+            <div class="avatar mx-auto">
+                <img src="{{ url_for('static', filename='img/benjamin_256x256.jpg') }}" class="img-fluid rounded-circle z-depth-1" alt="Sample avatar">
+            </div>
+
+            <h5 class="font-weight-bold mt-4 mb-3">Benjamin Yau</h5>
+
+            <p class="text-uppercase blue-text"><strong>Chief Business Development Officer</strong></p>
+
+            <p class="grey-text">Contributor to a team of planners in generating research, analytics and insights with
+                knowledge in Economics and Finance; author of a blog featuring technology topics deemed relevant and
+                pertinent to the future.</p>
+
+            <ul class="list-unstyled mb-0">
+                <!-- Facebook -->
+                <!--<a class="p-2 fa-lg fb-ic">-->
+                <!--<i class="fa fa-facebook blue-text"> </i>-->
+                <!--</a>-->
+
+                <!-- Instagram -->
+                <!--<a class="p-2 fa-lg ins-ic">-->
+                <!--<i class="fa fa-instagram blue-text"> </i>-->
+                <!--</a>-->
+
+                <!-- LinkedIn -->
+                <a class="p-2 fa-lg ins-ic" href="https://www.linkedin.com/in/benksyau/">
+                    <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+                </a>
+            </ul>
+        </div>
+        <!-- Grid column -->
+    </div>
+    <!-- Grid row -->
+</section>
+<!-- Section: Team v.1 -->
+{% endblock %}

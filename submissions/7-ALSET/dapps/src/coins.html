@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Material Design Bootstrap</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!--Main Navigation-->
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+            <div class="container">
+
+                <!-- Brand -->
+                <a class="navbar-brand waves-effect" href="https://mdbootstrap.com/docs/jquery/" target="_blank">
+                    <strong class="blue-text">ALSET</strong>
+                </a>
+
+                <!-- Collapse -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Links -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left -->
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link waves-effect" href="#">Home
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item active">
+                          <a class="nav-link waves-effect" href="coins.html" target="_blank">Coins</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link waves-effect" href="jobs.html" target="_blank">Jobs</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Navbar -->
+    </header>
+    <!--Main Navigation-->
+
+    <!--Main layout-->
+    <main class="mt-5 pt-5">
+        <div class="container">
+            <!--Section: Cards-->
+            <section class="pt-5">
+                <!-- Heading & Description -->
+                <div class="wow fadeIn">
+                    <!--Section heading-->
+                    <h2 class="h1 text-center mb-5">Coins</h2>
+
+                    <!--Section description-->
+                    <p class="text-center">
+                      Equity: 120142120
+                    </p>
+
+                    <p class="text-center">
+                      Equity: 120142120
+                    </p>
+
+                    <!-- <p class="text-center mb-5 pb-5">Bla bla black sheep have you any wool?</p> -->
+                </div>
+                <!-- Heading & Description -->
+
+                <div class="row mt-5">
+                    <div class="col-6">
+                        <div class="card">
+                            <h5 class="card-header h5">Buy</h5>
+
+                            <div class="card-body">
+                                <!-- <h5 class="card-title">Special title treatment</h5> -->
+
+                                <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+
+                                <div class="md-form form-lg">
+                                    <input type="number" id="input-buy-coins" class="form-control form-control-lg" min="1">
+                                    <label for="input-buy-coins">RM</label>
+                                </div>
+
+                                <button type="button" class="btn btn-primary">Buy</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="card">
+                            <h5 class="card-header h5">Sell</h5>
+
+                            <div class="card-body">
+                                <!-- <h5 class="card-title">Special title treatment</h5> -->
+
+                                <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+
+                                <div class="md-form form-lg">
+                                    <input type="number" id="input-sell-coins" class="form-control form-control-lg" min="1">
+                                    <label for="input-sell-coins">Coins</label>
+                                </div>
+
+                                <button type="button" class="btn btn-primary">Sell</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--Section: Cards-->
+
+        </div>
+    </main>
+    <!--Main layout-->
+
+    <!--Footer-->
+    <footer class="fixed-bottom page-footer text-center font-small mdb-color darken-2 mt-4 wow fadeIn">
+        <hr class="my-4">
+
+        <!--Copyright-->
+        <div class="footer-copyright py-3">
+            © 2018 Copyright:
+            <a href="https://mdbootstrap.com/education/bootstrap/" target="_blank"> ALSET </a>
+        </div>
+        <!--/.Copyright-->
+    </footer>
+    <!--/.Footer-->
+
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+
+    <script src="js/web3/dist/web3.min.js"></script>
+
+    <!-- Initializations -->
+    <script type="text/javascript">
+        // Animations initialization
+        new WOW().init();
+
+        if (typeof web3 !== 'undefined') {
+            web3 = new Web3(web3.currentProvider);
+        } else {
+            // set the provider you want from Web3.providers
+            web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
+        }
+
+        console.log(web3);
+
+        web3.eth.defaultAccount = web3.eth.accounts[0];
+
+        // Document ready
+        $(function() {
+            $.getJSON("ALSET.json", function(data) {
+                console.log(data.abi);
+
+                ALSETContract = web3.eth.contract(data.abi).at("0x5C77166b617Fd138aF5403e2225F1c9e09C34773");
+                console.log(ALSETContract);
+            })
+        });
+    </script>
+</body>
+</html>
