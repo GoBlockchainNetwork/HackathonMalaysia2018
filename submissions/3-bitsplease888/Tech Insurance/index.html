@@ -1,0 +1,224 @@
+<! DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="main.css">
+   <!-- <script src="./node_modules/web3/dist/web3.min.js"></script>-->
+  </head>
+  <body>
+  <div class="container">
+        <h1>LIFESAVER INSURANCE</h1>
+
+        <h2 id="instructor"></h2>
+        <span id="insTrans"></span>
+        <hr>
+
+<!--        <img id="loader" src="https://loading.io/spinners/double-ring/lg.double-ring-spinner.gif">-->
+
+<br><br>
+        <label for="name" class="col-lg-2 control-label">Name</label>
+        <input id="name" type="text">
+<br><br>
+        <label for="ic" class="col-lg-2 control-label">IC Number</label>
+        <input id="ic" type="text">
+<br><br>
+        <label for="score" class="col-lg-2 control-label">Mistake</label>
+        <input id="score" type="text">
+<br><br>
+        <button id="button">Update Issuer</button>
+<br><h2 id="calinfo"></h2><br>
+        <button id="purchase">Buy Insurance</button>
+  </div>
+  
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+
+<script>
+
+web3.eth.defaultAccount = web3.eth.accounts[0];
+
+var CourseToContract = web3.eth.contract([
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_address",
+				"type": "address"
+			},
+			{
+				"name": "_name",
+				"type": "string"
+			},
+			{
+				"name": "_ic",
+				"type": "uint256"
+			},
+			{
+				"name": "_score",
+				"type": "uint256"
+			}
+		],
+		"name": "setissuer",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"name": "ic",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"name": "score",
+				"type": "uint256"
+			}
+		],
+		"name": "issuerInfo",
+		"type": "event"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "countissuers",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_address",
+				"type": "address"
+			}
+		],
+		"name": "getissuer",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getissuers",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address[]"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "issuerAcc",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
+]);
+
+var Coursetro = CourseToContract.at('0x597e746ca236d26fdd200c0c9c6207120789a68e');
+console.log(Coursetro);
+
+var issuerEvent = Coursetro.issuerInfo({}, 'latest');
+//var infoEvent = Coursetro.calInfo({}, 'latest');
+
+issuerEvent.watch(function(error, result) {
+           if (result) {
+               if (result.blockHash != $("#insTrans").html())
+                    $("#loader").hide();
+
+               $("#insTrans").html('Block hash: ' + result.blockHash);
+               $("#instructor").html(result.args.name + ' ' + result.args.ic + ' (' + result.args.score + ' points)');
+           } else {
+                document.write("Sorry please try later");
+                $("#loader").hide();
+           }
+       });
+
+//infoevent.watch(function(error, result) {
+  //         if (result) {
+    //            $("#calinfo").html(result.args.Amount + ' ' + result.args.TotalAmount);
+               
+      //     } else {
+        //        document.write("Sorry please try later");
+          //      $("#loader").hide();
+  //         }
+      // });
+
+
+ Coursetro.countissuers((err, res) => {
+           if (res)
+            $("#countIns").html(res.c + ' issuer');
+       })
+
+
+$("#button").click(function() {
+           Coursetro.setissuer(web3.eth.defaultAccount, $("#name").val(), $("#ic").val(), $("#score").val(), (err, res) => {
+               if (err) {
+                   console.log
+               }
+           });
+
+           
+       });  
+
+//$("#purchase").click(function() {
+ //          Coursetro.calculate(web3.eth.defaultAccount,(err, res) => {
+//               if (err) {
+ //                  console.log
+//               }
+ //          }); 
+//}); 
+
+    </script>
+
+       </body>
+       </html>
+       
