@@ -1,0 +1,55 @@
+pragma solidity ^0.4.18;
+
+contract Upload{
+    
+    struct Driver{
+        string name;
+        uint id;
+        uint speed;
+        uint hardbreak;
+        uint suddenacc;
+    }
+    
+    struct User{
+        bool authorized;
+    }
+    
+    uint private idcounter;
+    address public owner;
+    mapping (uint => Driver) private NumDriver;
+    mapping (address => User) private user;
+    
+    modifier ownerOnly(){
+        require(msg.sender == owner);
+        _;
+    }
+    
+    function Upload() public{
+        owner = msg.sender;
+        user[msg.sender].authorized = true;
+    }
+    
+    function authorize (address _person) ownerOnly public{
+        user[_person].authorized = true;
+    }
+    
+    function getDriverCounter() view public returns (uint){
+        return (idcounter);
+    }
+    
+    function addDriver(string _name, uint _speed, uint _hardbreak, uint _suddenacc) public{
+        require(user[msg.sender].authorized);
+        NumDriver[idcounter].name = _name;
+        NumDriver[idcounter].id = idcounter;
+        NumDriver[idcounter].speed = _speed;
+        NumDriver[idcounter].hardbreak = _hardbreak;
+        NumDriver[idcounter].suddenacc = _suddenacc;
+        idcounter+=1;
+    }
+    
+    function getName(uint index) view public returns (string,uint,uint,uint,uint){
+        require(user[msg.sender].authorized);
+        return (NumDriver[index-1].name, NumDriver[index-1].id,NumDriver[index-1].speed,NumDriver[index-1].hardbreak,NumDriver[index-1].suddenacc );
+    }
+    
+}

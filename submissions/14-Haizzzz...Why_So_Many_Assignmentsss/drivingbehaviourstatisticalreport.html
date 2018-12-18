@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+
+  <div class='container'>  
+
+  <div class='header'>
+    <h1>Driving Behavior Statistical Report</h1>
+  </div>
+
+  <p class='space'>   </p>
+
+<div class="table-info">
+
+    <span>
+        <!-- <p id="message"></p> -->
+       <table id="infoTable" border="1px">
+                <tr>
+                  <td width="20%"> Month </td>
+                  <td width=20%> DriverID        </td>
+                  <td width=20%>Name</td>
+                  <td width=20%>Speeding Event   </td>
+                  <td width=20%>Extreme Hard Breaking </td>
+                  <td width=20%> Extreme Sudden Accelerate </td>
+                  <td width=20%>Distance </td>
+                  <td width=20%>Discount</td>
+                 </tr>
+        </table> 
+    </span>
+
+</div>
+
+<div>
+<p><p><p></p></p></p>
+
+
+<div id="piechart"></div>
+
+
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<body onload="setInterval(function(){drawChart()},30000);">
+</body>
+
+<script src="script.js">
+// Load google charts
+
+</script>
+</div>
+
+    </div>
+
+
+
+    <!-- <br><br><hr><br><br>
+    <span>
+      <input id="month" type="text" placeholder="month" style="width:200px" />
+        <input id="id" type="text" placeholder="id" style="width:200px" />
+        <input id="name" type="text" placeholder="name" style="width:200px" />
+         <input id="speed" type="text" placeholder="speeding events" style="width:200px" />
+          <input id="brake" type="text" placeholder="hard braking events" style="width:200px" />
+           <input id="acce" type="text" placeholder="sudden acceleration events" style="width:200px" />
+            <input id="distance" type="text" placeholder="distance travel" style="width:200px" />
+           
+
+
+        <button onclick="updateMessageValue();setInterval(function(){refreshMessageValue()},30000);">Update message value</button>
+    </span> -->
+    <script src="script.js"></script>
+  </body>
+</html>
