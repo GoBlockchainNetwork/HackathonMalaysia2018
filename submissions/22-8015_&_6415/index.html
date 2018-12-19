@@ -1,0 +1,84 @@
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <h1>Blockchain Demo</h1><br>
+
+    <span>
+        <p>wallet hash: </p>
+        <p id="wallethash"></p>
+        <br><br>
+        <p>transaction hash: </p>
+        <p id="transactionhash"></p>
+        <p id="message"></p>
+        <p id="name"></p>
+    </span>
+    <br><br><hr><br><br>
+    <span>
+        <input id="value" type="text" placeholder="enter new message value here" style="width:200px" />
+        <button onclick="updateStatusValue()">Update status value</button>
+    </span>
+    <br><br><hr><br><br>
+    <span>
+        <input id="nameValue" type="text" placeholder="enter new name here" style="width:200px" />
+        <button onclick="updateNameValue()">Update name value</button>
+    </span>
+    <script src="script.js"></script>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title></title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<script src="script.js"></script>
+<body onload="showValue()">
+  <h1>Patient Details</h1>
+
+<table name="Details" border=1>
+
+  <tr>
+    <td>Name</td>
+    <td><p id="name"></p></td>
+  </tr>
+
+  <tr>
+    <td>IC</td>
+    <td><p id="ic"></p></td>
+  </tr>
+
+  <tr>
+    <td>Location</td>
+    <td><p id="location"></p></td>
+  </tr>
+
+  <tr>
+    <td>Status</td>
+    <td><p id="status"></p></td>
+  </tr>
+
+  <tr>
+    <td>Occupation</td>
+    <td><p id="role"></p></td>
+  </tr>
+
+  <tr>
+    <td>Wallet Hash</td>
+    <td><p id="walletHash"></p></td>
+  </tr>
+  
+</table>
+<br><br><br><br>
+<button onclick="location.href = 'table.html';">UPDATE</button>
+</body>
+
+</html>
