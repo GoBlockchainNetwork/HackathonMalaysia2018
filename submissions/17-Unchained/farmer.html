@@ -1,0 +1,213 @@
+<!doctype html>
+<html>
+<head>
+    <title>Blockchain Hello World Blockchain</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type="text/css">
+
+        @font-face{
+            font-family: "Lato";
+            src: url("fonts/Lato-Regular.eot");
+            src: 
+            url("fonts/Lato-Regular.woff") format("woff"),
+            url("fonts/Lato-Regular.otf") format("opentype"),
+            url("fonts/Lato-Regular.woff2") format("woff2");
+        }
+
+        .content-text{
+            text-align: left;
+            font-size: 15px;
+            padding-right: 10px;
+        }
+
+
+        .page-section{
+            font-family: "Lato"
+        }
+
+        .top-bar-nav{
+            color: white;
+            font-size: 20px;
+            margin-right: 20px;
+        }
+
+        .wrapper{
+            max-width: 1230px;
+            margin: auto;
+        }
+
+        .nav-bar{
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 90%;
+            display: table;
+            padding: 0em 1em 1em 3em;
+ 
+        }
+
+        .top-tab{
+            z-index: 1;
+            height: 250px;
+        }
+
+        .mast-head{
+            background-image: url(/blockchain/blockchain/img/image1.png);
+            background-size: cover;
+        }
+
+        .title-left{
+            display:table-cell;
+            width: 40%;
+            float: left;
+            font-weight: bold;
+            font-size: 30px;
+            color: white;
+            vertical-align: middle;
+        }
+
+        .menu-right{
+            display:table-cell;
+            width: 60%;
+            font-size: 20px;
+            color: white;
+            vertical-align: middle;
+            text-align:right;
+        }
+
+        .pre-content{
+            background-image: url(/blockchain/blockchain/img/image2.png);
+            z-index: 1;
+            background-color: #E8E1B7;
+        }
+
+        .pre-content-item{
+            width: 48%;
+            /* padding: 10px; */
+            margin-bottom: 20px;
+            text-align: center;
+            float: left;
+            height: 100%;
+            background-color: white;
+            margin-right: 20px;
+
+        }
+        
+        .pre-content-item-text{
+            font-size: 15px;
+            font-weight: bold;
+        
+        }
+
+        .visual{
+            padding: 10px;
+            width: 40%;
+            float: left;
+        }
+
+        .content{
+            background-color: white;
+        }
+
+        .category-tab{
+            text-align: center;
+            width: 50%;
+            overflow: hidden;
+            padding-left: 50px;
+        }
+
+        .category-tab-item{
+            padding: 1em 0em 1em 1em;
+            width: 20%;
+            float: left;
+            /* overflow: hidden; */
+        }
+    
+        .cat-btn{
+            text-align: center;
+            font-size: 15px;
+            border: 1px solid grey;
+            background-color: white;
+            color: grey;
+        }
+
+        .is-active{
+            color: white;
+            background-color: #8CA87F;
+            border-color: #8CA87F;
+        }
+
+        .main-content{}
+
+        .main-content div{
+            padding: 2em;
+        }
+
+        h3{
+            font-weight: bold;
+            font-size: 25px;
+        } 
+
+        .main-content p{
+            font-size: 10px;
+        }
+
+        .main-content span{
+            width: 25%;
+            display: inline-block;
+        }
+
+
+    
+    </style>    
+</head>
+
+<body>
+    <section class="page-section top-tab mast-head">
+        <div class="wrapper">
+            <div class="nav-bar">
+                <div class="title-left"><h1>OpenFruit</h1></div>
+                <div class="menu-right">
+                    <a href="index.html" class="top-bar-nav">Supplier</a>
+                    <a href="farmer.html" class="top-bar-nav">Farmer</a>
+                </div>
+            </div>  
+        </div>
+    </section>
+    <section class="page-section pre-content">
+        <div class="wrapper" style="height: 100px; padding: 1em 2em 1em 2em; background-color: #D7E2D2;">
+            <div class="pre-content-item">
+             
+                <div class="visual"><img style="width: 50%" src="/blockchain/blockchain/img/Group_25.png"/></div>
+                <p class="content-text">Highest quality produce fetch highest prices</p>
+                
+            </div>
+            <div class="pre-content-item">
+    
+                <div class="visual"><img style="width: 50%" src="/blockchain/blockchain/img/Group_25.png"/></div>
+                <p class="content-text">Highest quality produce fetch highest prices</p>
+                
+            </div>
+        </div>
+    </section>
+    <section class="page-section content">
+        <div class= "wrapper">
+            <div class="category-tab">
+                <div class="category-tab-item"><button onclick="void(0)" class="cat-btn is-active">Mango</button></div>
+                <div class="category-tab-item"><button onclick="void(0)" class="cat-btn">Banana</button></div>
+            </div>
+            <div class="main-content" id="main-content-supplier">
+                <div>
+                    <h3>Billy Musa Farm</h3>
+                    <p><span id="item_price"></span><span id="item_stock"></span><span id="review"></span><span id="review_amount"></span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+</body>
+<script type="text/javascript" src="index.js"></script>
+</html>
